@@ -163,7 +163,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final textScaleFactor = math.min(media.textScaleFactor, 1.3);
     final direction = Directionality.of(context);
 
-    final dateText = materialLocalizations.formatMonthYear(_selectedDate);
+    final dateText =
+        NepaliDateFormat('MMMM yyyy', Language.nepali).format(_selectedDate);
     final onPrimarySurface = colorScheme.brightness == Brightness.light
         ? colorScheme.onPrimary
         : colorScheme.onSurface;
@@ -190,7 +191,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
       ),
     );
 
-    final semanticText = materialLocalizations.formatMonthYear(_selectedDate);
+    final semanticText =
+        NepaliDateFormat('MMMM yyyy', Language.nepali).format(_selectedDate);
     final header = _Header(
       helpText: localizations.helpText,
       titleText: dateText,
