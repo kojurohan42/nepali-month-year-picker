@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nepali_utils/nepali_utils.dart';
 
 // ################################## CLASSES ##################################
 class MonthPicker extends StatefulWidget {
@@ -16,12 +17,12 @@ class MonthPicker extends StatefulWidget {
   }) : super(key: key);
 
   // ---------------------------------- FIELDS ---------------------------------
-  final DateTime firstDate;
-  final DateTime lastDate;
-  final DateTime initialDate;
-  final DateTime selectedDate;
-  final ValueChanged<DateTime> onMonthSelected;
-  final ValueChanged<DateTime> onPageChanged;
+  final NepaliDateTime firstDate;
+  final NepaliDateTime lastDate;
+  final NepaliDateTime initialDate;
+  final NepaliDateTime selectedDate;
+  final ValueChanged<NepaliDateTime> onMonthSelected;
+  final ValueChanged<NepaliDateTime> onPageChanged;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
@@ -112,7 +113,7 @@ class MonthPickerState extends State<MonthPicker> {
 
   void _onPageChanged(final int page) {
     _currentPage = page;
-    var newDate = DateTime(
+    var newDate = NepaliDateTime(
       widget.firstDate.year + page,
       widget.selectedDate.month,
     );
@@ -137,12 +138,12 @@ class YearPicker extends StatefulWidget {
   }) : super(key: key);
 
   // ---------------------------------- FIELDS ---------------------------------
-  final DateTime firstDate;
-  final DateTime lastDate;
-  final DateTime initialDate;
-  final DateTime selectedDate;
-  final ValueChanged<DateTime> onYearSelected;
-  final ValueChanged<DateTime> onPageChanged;
+  final NepaliDateTime firstDate;
+  final NepaliDateTime lastDate;
+  final NepaliDateTime initialDate;
+  final NepaliDateTime selectedDate;
+  final ValueChanged<NepaliDateTime> onYearSelected;
+  final ValueChanged<NepaliDateTime> onPageChanged;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
@@ -230,7 +231,7 @@ class YearPickerState extends State<YearPicker> {
 
   void _onPageChanged(final int page) {
     _currentPage = page;
-    widget.onPageChanged(DateTime(widget.firstDate.year + (page * 12)));
+    widget.onPageChanged(NepaliDateTime(widget.firstDate.year + (page * 12)));
   }
 }
 
@@ -250,17 +251,17 @@ class _MonthButton extends StatelessWidget {
   // ---------------------------------- FIELDS ---------------------------------
   final int page;
   final int index;
-  final DateTime firstDate;
-  final DateTime lastDate;
-  final DateTime selectedDate;
-  final ValueChanged<DateTime> onMonthSelected;
+  final NepaliDateTime firstDate;
+  final NepaliDateTime lastDate;
+  final NepaliDateTime selectedDate;
+  final ValueChanged<NepaliDateTime> onMonthSelected;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
   @override
   Widget build(BuildContext context) {
     final year = firstDate.year + page;
-    final date = DateTime(year, index + 1);
+    final date = NepaliDateTime(year, index + 1);
     final locale = Localizations.localeOf(context).toString();
 
     final isEnabled = selectableMonthYearPredicate == null
@@ -269,15 +270,15 @@ class _MonthButton extends StatelessWidget {
     final isSelected =
         date.month == selectedDate.month && date.year == selectedDate.year;
 
-    final now = DateTime.now();
+    final now = NepaliDateTime.now();
     final isThisMonth = date.month == now.month && date.year == now.year;
 
     return _Button(
-      label: DateFormat.MMM(locale).format(date),
+      label: NepaliDateFormat('MMMM', Language.nepali).format(date),
       isEnabled: isEnabled,
       isHighlighted: isThisMonth,
       isSelected: isSelected,
-      onPressed: () => onMonthSelected(DateTime(date.year, date.month)),
+      onPressed: () => onMonthSelected(NepaliDateTime(date.year, date.month)),
     );
   }
 }
@@ -298,17 +299,17 @@ class _YearButton extends StatelessWidget {
   // ---------------------------------- FIELDS ---------------------------------
   final int page;
   final int index;
-  final DateTime firstDate;
-  final DateTime lastDate;
-  final DateTime selectedDate;
-  final ValueChanged<DateTime> onYearSelected;
+  final NepaliDateTime firstDate;
+  final NepaliDateTime lastDate;
+  final NepaliDateTime selectedDate;
+  final ValueChanged<NepaliDateTime> onYearSelected;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
   @override
   Widget build(BuildContext context) {
     final year = firstDate.year + (page * 12) + index;
-    final date = DateTime(year);
+    final date = NepaliDateTime(year);
     final locale = Localizations.localeOf(context).toString();
 
     final isEnabled = selectableMonthYearPredicate == null
@@ -316,15 +317,15 @@ class _YearButton extends StatelessWidget {
         : selectableMonthYearPredicate!(date);
     final isSelected = year == selectedDate.year;
 
-    final now = DateTime.now();
+    final now = NepaliDateTime.now();
     final isThisYear = year == now.year;
 
     return _Button(
-      label: DateFormat.y(locale).format(date),
+      label: NepaliDateFormat('yyyy', Language.nepali).format(date),
       isEnabled: isEnabled,
       isHighlighted: isThisYear,
       isSelected: isSelected,
-      onPressed: () => onYearSelected(DateTime(date.year)),
+      onPressed: () => onYearSelected(NepaliDateTime(date.year)),
     );
   }
 }
@@ -376,4 +377,4 @@ class _Button extends StatelessWidget {
 
 // ################################## TYPEDEFS #################################
 /// Signature for predicating dates for enabled month/year selections.
-typedef SelectableMonthYearPredicate = bool Function(DateTime my);
+typedef SelectableMonthYearPredicate = bool Function(NepaliDateTime my);

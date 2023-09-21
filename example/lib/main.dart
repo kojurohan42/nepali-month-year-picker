@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:month_year_picker/month_year_picker.dart';
+import 'package:nepali_utils/nepali_utils.dart';
 
 void main() {
   runApp(const ExampleApp());
@@ -41,7 +42,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // ---------------------------------- FIELDS ---------------------------------
-  DateTime? _selected;
+  NepaliDateTime? _selected;
 
   // --------------------------------- METHODS ---------------------------------
   @override
@@ -55,7 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
             if (_selected == null)
               const Text('No month year selected.')
             else
-              Text(DateFormat().add_yM().format(_selected!)),
+              Text(
+                  NepaliDateFormat('MMMM', Language.nepali).format(_selected!)),
             TextButton(
               child: const Text('DEFAULT LOCALE'),
               onPressed: () => _onPressed(context: context),
@@ -81,16 +83,16 @@ class _MyHomePageState extends State<MyHomePage> {
     final localeObj = locale != null ? Locale(locale) : null;
     final selected = await showMonthYearPicker(
       context: context,
-      initialDate: _selected ?? DateTime.now(),
-      firstDate: DateTime(2019),
-      lastDate: DateTime(2030),
+      initialDate: _selected ?? NepaliDateTime.now(),
+      firstDate: NepaliDateTime(2019),
+      lastDate: NepaliDateTime(2030),
       locale: localeObj,
     );
     // final selected = await showDatePicker(
     //   context: context,
-    //   initialDate: _selected ?? DateTime.now(),
-    //   firstDate: DateTime(2019),
-    //   lastDate: DateTime(2022),
+    //   initialDate: _selected ?? NepaliDateTime.now(),
+    //   firstDate: NepaliDateTime(2019),
+    //   lastDate: NepaliDateTime(2022),
     //   locale: localeObj,
     // );
     if (selected != null) {

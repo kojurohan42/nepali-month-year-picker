@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart' hide YearPicker;
+import 'package:nepali_utils/nepali_utils.dart';
 
 import 'l10n/month_year_picker_localizations.dart';
 import 'pickers.dart';
@@ -19,11 +20,11 @@ const _headerPaddingLandscape = 16.0;
 /// [initialDate] is the initially selected month.
 /// [firstDate] is the lower bound for month selection.
 /// [lastDate] is the upper bound for month selection.
-Future<DateTime?> showMonthYearPicker({
+Future<NepaliDateTime?> showMonthYearPicker({
   required BuildContext context,
-  required DateTime initialDate,
-  required DateTime firstDate,
-  required DateTime lastDate,
+  required NepaliDateTime initialDate,
+  required NepaliDateTime firstDate,
+  required NepaliDateTime lastDate,
   SelectableMonthYearPredicate? selectableMonthYearPredicate,
   Locale? locale,
   bool useRootNavigator = true,
@@ -75,7 +76,7 @@ Future<DateTime?> showMonthYearPicker({
     );
   }
 
-  return await showDialog<DateTime>(
+  return await showDialog<NepaliDateTime>(
     context: context,
     useRootNavigator: useRootNavigator,
     routeSettings: routeSettings,
@@ -102,9 +103,9 @@ class MonthYearPickerDialog extends StatefulWidget {
   }) : super(key: key);
 
   // ---------------------------------- FIELDS ---------------------------------
-  final DateTime initialDate;
-  final DateTime firstDate;
-  final DateTime lastDate;
+  final NepaliDateTime initialDate;
+  final NepaliDateTime firstDate;
+  final NepaliDateTime lastDate;
   final MonthYearPickerMode initialMonthYearPickerMode;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
@@ -120,7 +121,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
   var _isShowingYear = false;
   var _canGoPrevious = false;
   var _canGoNext = false;
-  late DateTime _selectedDate = widget.initialDate;
+  late NepaliDateTime _selectedDate = widget.initialDate;
 
   // -------------------------------- PROPERTIES -------------------------------
   Size get _dialogSize {
@@ -375,23 +376,23 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     );
   }
 
-  void _updateYear(DateTime date) {
+  void _updateYear(NepaliDateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, _selectedDate.month);
+      _selectedDate = NepaliDateTime(date.year, _selectedDate.month);
       _isShowingYear = false;
       _monthPickerState.currentState!.goToYear(year: _selectedDate.year);
     });
   }
 
-  void _updateMonth(DateTime date) {
+  void _updateMonth(NepaliDateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, date.month);
+      _selectedDate = NepaliDateTime(date.year, date.month);
     });
   }
 
-  void _updateSelectedDate(DateTime date) {
+  void _updateSelectedDate(NepaliDateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, date.month);
+      _selectedDate = NepaliDateTime(date.year, date.month);
       _updatePaginators();
     });
   }

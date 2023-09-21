@@ -33,9 +33,9 @@ The month year picker inspired by the Flutter's date picker design.
     ```dart
     final selected = await showMonthYearPicker(
       context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2019),
-      lastDate: DateTime(2023),
+      initialDate: NepaliDateTime.now(),
+      firstDate: NepaliDateTime(2019),
+      lastDate: NepaliDateTime(2023),
     );
     ```
 

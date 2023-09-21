@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nepali_utils/nepali_utils.dart';
 
 import 'l10n/month_year_picker_localizations.dart';
 
-DateTime monthYearOnly(DateTime dateTime) {
-  return DateTime(dateTime.year, dateTime.month);
+NepaliDateTime monthYearOnly(NepaliDateTime dateTime) {
+  return NepaliDateTime(dateTime.year, dateTime.month);
 }
 
 bool debugCheckHasMonthYearPickerLocalizations(BuildContext context) {
