@@ -58,7 +58,7 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 
 
 ## Example Demo
-![](screenshots/nepali_month_picker_demo.mp4) 
+
 
 ## Screenshots
 
