@@ -11,6 +11,7 @@ class MonthPicker extends StatefulWidget {
     required this.selectedDate,
     required this.onMonthSelected,
     required this.onPageChanged,
+    required this.language,
     this.selectableMonthYearPredicate,
     Key? key,
   }) : super(key: key);
@@ -22,6 +23,7 @@ class MonthPicker extends StatefulWidget {
   final NepaliDateTime selectedDate;
   final ValueChanged<NepaliDateTime> onMonthSelected;
   final ValueChanged<NepaliDateTime> onPageChanged;
+  final Language language;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
@@ -93,7 +95,7 @@ class MonthPickerState extends State<MonthPicker> {
   Widget _buildItem(final BuildContext context, final int page) {
     return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(6.0),
       crossAxisCount: 4,
       children: [
         for (var i = 0; i < 12; i++)
@@ -104,6 +106,7 @@ class MonthPickerState extends State<MonthPicker> {
             lastDate: widget.lastDate,
             selectedDate: widget.selectedDate,
             onMonthSelected: widget.onMonthSelected,
+            language: widget.language,
             selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
           ),
       ],
@@ -132,6 +135,7 @@ class YearPicker extends StatefulWidget {
     required this.selectedDate,
     required this.onYearSelected,
     required this.onPageChanged,
+    required this.language,
     this.selectableMonthYearPredicate,
     Key? key,
   }) : super(key: key);
@@ -141,6 +145,7 @@ class YearPicker extends StatefulWidget {
   final NepaliDateTime lastDate;
   final NepaliDateTime initialDate;
   final NepaliDateTime selectedDate;
+  final Language language;
   final ValueChanged<NepaliDateTime> onYearSelected;
   final ValueChanged<NepaliDateTime> onPageChanged;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
@@ -222,6 +227,7 @@ class YearPickerState extends State<YearPicker> {
             lastDate: widget.lastDate,
             selectedDate: widget.selectedDate,
             onYearSelected: widget.onYearSelected,
+            language: widget.language,
             selectableMonthYearPredicate: widget.selectableMonthYearPredicate,
           ),
       ],
@@ -243,6 +249,7 @@ class _MonthButton extends StatelessWidget {
     required this.lastDate,
     required this.selectedDate,
     required this.onMonthSelected,
+    required this.language,
     this.selectableMonthYearPredicate,
     Key? key,
   }) : super(key: key);
@@ -253,6 +260,7 @@ class _MonthButton extends StatelessWidget {
   final NepaliDateTime firstDate;
   final NepaliDateTime lastDate;
   final NepaliDateTime selectedDate;
+  final Language language;
   final ValueChanged<NepaliDateTime> onMonthSelected;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
@@ -273,7 +281,7 @@ class _MonthButton extends StatelessWidget {
     final isThisMonth = date.month == now.month && date.year == now.year;
 
     return _Button(
-      label: NepaliDateFormat('MMMM', Language.nepali).format(date),
+      label: NepaliDateFormat('MMMM', language).format(date),
       isEnabled: isEnabled,
       isHighlighted: isThisMonth,
       isSelected: isSelected,
@@ -292,6 +300,7 @@ class _YearButton extends StatelessWidget {
     required this.selectedDate,
     required this.onYearSelected,
     this.selectableMonthYearPredicate,
+    required this.language,
     Key? key,
   }) : super(key: key);
 
@@ -303,6 +312,7 @@ class _YearButton extends StatelessWidget {
   final NepaliDateTime selectedDate;
   final ValueChanged<NepaliDateTime> onYearSelected;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
+  final Language language;
 
   // --------------------------------- METHODS ---------------------------------
   @override
@@ -320,7 +330,7 @@ class _YearButton extends StatelessWidget {
     final isThisYear = year == now.year;
 
     return _Button(
-      label: NepaliDateFormat('yyyy', Language.nepali).format(date),
+      label: NepaliDateFormat('yyyy', language).format(date),
       isEnabled: isEnabled,
       isHighlighted: isThisYear,
       isSelected: isSelected,
@@ -365,11 +375,14 @@ class _Button extends StatelessWidget {
         foregroundColor: buttonText,
         disabledForegroundColor: buttonText,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100.0),
+          borderRadius: BorderRadius.circular(80.0),
         ),
         textStyle: TextStyle(color: buttonText),
       ),
-      child: Text(label),
+      child: Text(
+        label,
+        style: const TextStyle(overflow: TextOverflow.ellipsis),
+      ),
     );
   }
 }

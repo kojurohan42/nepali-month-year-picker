@@ -1,25 +1,28 @@
-name: nepali_month_year_picker_example
-description: Shows example on how to use the nepali_month_year_picker package.
-version: 0.0.1
-publish_to: 'none'
+name: example
+description: A new Flutter project showcasing the nepali month year picker package.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 0.0.1+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.1.1 <4.0.0'
 
 dependencies:
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.0
+  intl: ^0.18.1
   nepali_month_year_picker:
     path: ..
   nepali_utils: ^3.0.3
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true

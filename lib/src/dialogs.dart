@@ -289,6 +289,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   lastDate: widget.lastDate,
                   onPageChanged: _updateSelectedDate,
                   onYearSelected: _updateYear,
+                  language: widget.language,
                   selectedDate: _selectedDate,
                   selectableMonthYearPredicate:
                       widget.selectableMonthYearPredicate,
@@ -311,6 +312,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   lastDate: widget.lastDate,
                   onPageChanged: _updateSelectedDate,
                   onMonthSelected: _updateMonth,
+                  language: widget.language,
                   selectedDate: _selectedDate,
                   selectableMonthYearPredicate:
                       widget.selectableMonthYearPredicate,

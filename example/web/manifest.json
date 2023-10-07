@@ -1,6 +1,6 @@
 {
-    "name": "month_year_picker_example",
-    "short_name": "month_year_picker_example",
+    "name": "example",
+    "short_name": "example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
