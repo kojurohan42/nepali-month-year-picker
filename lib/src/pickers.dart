@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:nepali_utils/nepali_utils.dart';
 
 // ################################## CLASSES ##################################
@@ -262,7 +261,7 @@ class _MonthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final year = firstDate.year + page;
     final date = NepaliDateTime(year, index + 1);
-    final locale = Localizations.localeOf(context).toString();
+    // final locale = Localizations.localeOf(context).toString();
 
     final isEnabled = selectableMonthYearPredicate == null
         ? firstDate.compareTo(date) <= 0 && lastDate.compareTo(date) >= 0
@@ -310,7 +309,7 @@ class _YearButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final year = firstDate.year + (page * 12) + index;
     final date = NepaliDateTime(year);
-    final locale = Localizations.localeOf(context).toString();
+    // final locale = Localizations.localeOf(context).toString();
 
     final isEnabled = selectableMonthYearPredicate == null
         ? year >= firstDate.year && year <= lastDate.year

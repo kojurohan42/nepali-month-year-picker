@@ -1,5 +1,5 @@
-name: month_year_picker_example
-description: Shows example on how to use the month_year_picker package.
+name: nepali_month_year_picker_example
+description: Shows example on how to use the nepali_month_year_picker package.
 version: 0.0.1
 publish_to: 'none'
 
@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.18.0
-  month_year_picker:
+  nepali_month_year_picker:
     path: ..
   nepali_utils: ^3.0.3
 

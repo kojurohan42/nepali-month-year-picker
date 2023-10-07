@@ -16,11 +16,11 @@ const _datePickerHeaderPortraitHeight = 120.0;
 const _headerPaddingLandscape = 16.0;
 
 // ################################# FUNCTIONS #################################
-/// Displays month year picker dialog.
+/// Displays nepali month year picker dialog.
 /// [initialDate] is the initially selected month.
 /// [firstDate] is the lower bound for month selection.
 /// [lastDate] is the upper bound for month selection.
-Future<NepaliDateTime?> showMonthYearPicker({
+Future<NepaliDateTime?> showNepaliMonthYearPicker({
   required BuildContext context,
   required NepaliDateTime initialDate,
   required NepaliDateTime firstDate,
@@ -28,6 +28,7 @@ Future<NepaliDateTime?> showMonthYearPicker({
   SelectableMonthYearPredicate? selectableMonthYearPredicate,
   Locale? locale,
   bool useRootNavigator = true,
+  Language language = Language.english,
   RouteSettings? routeSettings,
   TextDirection? textDirection,
   TransitionBuilder? builder,
@@ -57,6 +58,7 @@ Future<NepaliDateTime?> showMonthYearPicker({
     initialDate: initialDate,
     firstDate: firstDate,
     lastDate: lastDate,
+    language: language,
     initialMonthYearPickerMode: initialMonthYearPickerMode,
     selectableMonthYearPredicate: selectableMonthYearPredicate,
   );
@@ -99,6 +101,7 @@ class MonthYearPickerDialog extends StatefulWidget {
     required this.firstDate,
     required this.lastDate,
     required this.initialMonthYearPickerMode,
+    required this.language,
     this.selectableMonthYearPredicate,
   }) : super(key: key);
 
@@ -106,6 +109,7 @@ class MonthYearPickerDialog extends StatefulWidget {
   final NepaliDateTime initialDate;
   final NepaliDateTime firstDate;
   final NepaliDateTime lastDate;
+  final Language language;
   final MonthYearPickerMode initialMonthYearPickerMode;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
@@ -164,7 +168,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final direction = Directionality.of(context);
 
     final dateText =
-        NepaliDateFormat('MMMM yyyy', Language.nepali).format(_selectedDate);
+        NepaliDateFormat('MMMM yyyy', widget.language).format(_selectedDate);
     final onPrimarySurface = colorScheme.brightness == Brightness.light
         ? colorScheme.onPrimary
         : colorScheme.onSurface;
@@ -192,7 +196,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     );
 
     final semanticText =
-        NepaliDateFormat('MMMM yyyy', Language.nepali).format(_selectedDate);
+        NepaliDateFormat('MMMM yyyy', widget.language).format(_selectedDate);
     final header = _Header(
       helpText: localizations.helpText,
       titleText: dateText,

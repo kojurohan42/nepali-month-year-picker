@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -5,19 +7,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'month_year_picker_localizations_ar.dart';
-import 'month_year_picker_localizations_de.dart';
 import 'month_year_picker_localizations_en.dart';
-import 'month_year_picker_localizations_fr.dart';
-import 'month_year_picker_localizations_id.dart';
-import 'month_year_picker_localizations_ja.dart';
-import 'month_year_picker_localizations_ko.dart';
-import 'month_year_picker_localizations_ms.dart';
-import 'month_year_picker_localizations_pt.dart';
-import 'month_year_picker_localizations_th.dart';
-import 'month_year_picker_localizations_tr.dart';
-import 'month_year_picker_localizations_vi.dart';
-import 'month_year_picker_localizations_zh.dart';
+import 'month_year_picker_localizations_ne.dart';
 
 /// Callers can lookup localized strings with an instance of MonthYearPickerLocalizations
 /// returned by `MonthYearPickerLocalizations.of(context)`.
@@ -104,20 +95,8 @@ abstract class MonthYearPickerLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('ar'),
-    Locale('de'),
     Locale('en'),
-    Locale('fr'),
-    Locale('id'),
-    Locale('ja'),
-    Locale('ko'),
-    Locale('ms'),
-    Locale('pt'),
-    Locale('th'),
-    Locale('tr'),
-    Locale('vi'),
-    Locale('zh'),
-    Locale('zh', 'CH')
+    Locale('ne'),
   ];
 
   /// No description provided for @helpText.
@@ -150,67 +129,20 @@ class _MonthYearPickerLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) => <String>[
-        'ar',
-        'de',
-        'en',
-        'fr',
-        'id',
-        'ja',
-        'ko',
-        'ms',
-        'pt',
-        'th',
-        'tr',
-        'vi',
-        'zh'
-      ].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'ne'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MonthYearPickerLocalizationsDelegate old) => false;
 }
 
 MonthYearPickerLocalizations lookupMonthYearPickerLocalizations(Locale locale) {
-  // Lookup logic when language+country codes are specified.
-  switch (locale.languageCode) {
-    case 'zh':
-      {
-        switch (locale.countryCode) {
-          case 'CH':
-            return MonthYearPickerLocalizationsZhCh();
-        }
-        break;
-      }
-  }
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar':
-      return MonthYearPickerLocalizationsAr();
-    case 'de':
-      return MonthYearPickerLocalizationsDe();
     case 'en':
       return MonthYearPickerLocalizationsEn();
-    case 'fr':
-      return MonthYearPickerLocalizationsFr();
-    case 'id':
-      return MonthYearPickerLocalizationsId();
-    case 'ja':
-      return MonthYearPickerLocalizationsJa();
-    case 'ko':
-      return MonthYearPickerLocalizationsKo();
-    case 'ms':
-      return MonthYearPickerLocalizationsMs();
-    case 'pt':
-      return MonthYearPickerLocalizationsPt();
-    case 'th':
-      return MonthYearPickerLocalizationsTh();
-    case 'tr':
-      return MonthYearPickerLocalizationsTr();
-    case 'vi':
-      return MonthYearPickerLocalizationsVi();
-    case 'zh':
-      return MonthYearPickerLocalizationsZh();
+    case 'ne':
+      return MonthYearPickerLocalizationsNe();
   }
 
   throw FlutterError(

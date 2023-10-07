@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
-import 'package:month_year_picker/month_year_picker.dart';
+import 'package:nepali_month_year_picker/nepali_month_year_picker.dart';
+
 import 'package:nepali_utils/nepali_utils.dart';
 
 void main() {
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String? locale,
   }) async {
     final localeObj = locale != null ? Locale(locale) : null;
-    final selected = await showMonthYearPicker(
+    final selected = await showNepaliMonthYearPicker(
       context: context,
       initialDate: _selected ?? NepaliDateTime.now(),
       firstDate: NepaliDateTime(2019),
