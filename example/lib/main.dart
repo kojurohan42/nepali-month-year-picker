@@ -64,15 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: NepaliDateFormat(
                     'MMMM yyyy',
                   ).format(_selected!)),
-              CalendarIconButton(
-                  onNext: onNextPressed,
-                  onPrev: onPrevPressed,
-                  onTap: () => _onPressed(
-                      context: context,
-                      locale: 'ne',
-                      language: Language.nepali),
-                  title: NepaliDateFormat('MMMM yyyy', Language.nepali)
-                      .format(_selected!)),
+              Text(NepaliDateFormat('MMMM yyyy', Language.nepali)
+                  .format(_selected!)),
             ],
             TextButton(
               child: const Text('DEFAULT LOCALE'),
