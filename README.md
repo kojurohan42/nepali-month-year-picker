@@ -1,7 +1,7 @@
 # Material Nepali Month/Year Picker
 
 [![Pub](https://img.shields.io/pub/v/nepali_month_year_picker?style=flat-square)][pub]
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zulfahmi93/nepali-month-year-picker/publish.yaml?label=publish&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/kojurohan42/nepali-month-year-picker/publish.yaml?label=publish&style=flat-square)
 
 The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`. It is a month year picker for the Nepali calendar using the help of `nepali_utils`.
 
@@ -58,6 +58,10 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 
 
 ## Example Demo
+
+https://github.com/kojurohan42/nepali-month-year-picker/assets/60424631/e6d73d09-422a-4bb6-90f6-0c47a8af42c4
+
+
 
 
 ## Screenshots
