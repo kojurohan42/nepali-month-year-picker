@@ -56,6 +56,10 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 | `builder`                      | Can be `null`. This parameter can be used to wrap the dialog widget with a parent widget.                                                                                                                                                                                        |
 | `initialMonthYearPickerMode`   | Must not be `null`. Can be used to have the year picker initially appear in the `MonthYearPickerMode.year` mode. It defaults to the `MonthYearPickerMode.month` mode.                                                                                                            |
 
+
+## Example Demo
+![](screenshots/nepali_month_picker_demo.mp4) 
+
 ## Screenshots
 
 | Mode                                                    | Screenshot                                   |
@@ -79,7 +83,7 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 
 ## Features and Bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+Please file feature requests and bugs at the [issue tracker](https://github.com/kojurohan42/nepali-month-year-picker/issues).
 
 ## License
 
