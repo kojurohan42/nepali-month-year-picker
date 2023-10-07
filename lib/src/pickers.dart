@@ -12,6 +12,7 @@ class MonthPicker extends StatefulWidget {
     required this.onMonthSelected,
     required this.onPageChanged,
     required this.language,
+    required this.orientation,
     this.selectableMonthYearPredicate,
     Key? key,
   }) : super(key: key);
@@ -24,6 +25,7 @@ class MonthPicker extends StatefulWidget {
   final ValueChanged<NepaliDateTime> onMonthSelected;
   final ValueChanged<NepaliDateTime> onPageChanged;
   final Language language;
+  final Orientation orientation;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
 
   // --------------------------------- METHODS ---------------------------------
@@ -94,7 +96,9 @@ class MonthPickerState extends State<MonthPicker> {
 
   Widget _buildItem(final BuildContext context, final int page) {
     return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
+      physics: widget.orientation == Orientation.landscape
+          ? const BouncingScrollPhysics()
+          : const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(6.0),
       crossAxisCount: 4,
       children: [
@@ -136,6 +140,7 @@ class YearPicker extends StatefulWidget {
     required this.onYearSelected,
     required this.onPageChanged,
     required this.language,
+    required this.orientation,
     this.selectableMonthYearPredicate,
     Key? key,
   }) : super(key: key);
@@ -146,6 +151,7 @@ class YearPicker extends StatefulWidget {
   final NepaliDateTime initialDate;
   final NepaliDateTime selectedDate;
   final Language language;
+  final Orientation orientation;
   final ValueChanged<NepaliDateTime> onYearSelected;
   final ValueChanged<NepaliDateTime> onPageChanged;
   final SelectableMonthYearPredicate? selectableMonthYearPredicate;
@@ -215,7 +221,9 @@ class YearPickerState extends State<YearPicker> {
 
   Widget _buildItem(final BuildContext context, final int page) {
     return GridView.count(
-      physics: const NeverScrollableScrollPhysics(),
+      physics: widget.orientation == Orientation.landscape
+          ? const BouncingScrollPhysics()
+          : const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(8.0),
       crossAxisCount: 4,
       children: [
