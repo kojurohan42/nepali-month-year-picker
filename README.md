@@ -58,20 +58,12 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 
 ## Screenshots
 
-| Mode                                                | Screenshot                                   |
-| --------------------------------------------------- | -------------------------------------------- |
-| Month picker in portrait mode with default locale.  | ![](screenshots/portrait_default_month.png)  |
-| Year picker in portrait mode with default locale.   | ![](screenshots/portrait_default_year.png)   |
-| Month picker in portrait mode with Malay locale.    | ![](screenshots/portrait_ms_month.png)       |
-| Year picker in portrait mode with Malay locale.     | ![](screenshots/portrait_ms_year.png)        |
-| Month picker in portrait mode with Arabic locale.   | ![](screenshots/portrait_ar_month.png)       |
-| Year picker in portrait mode with Arabic locale.    | ![](screenshots/portrait_ar_year.png)        |
-| Month picker in landscape mode with default locale. | ![](screenshots/landscape_default_month.png) |
-| Year picker in landscape mode with default locale.  | ![](screenshots/landscape_default_year.png)  |
-| Month picker in landscape mode with Malay locale.   | ![](screenshots/landscape_ms_month.png)      |
-| Year picker in landscape mode with Malay locale.    | ![](screenshots/landscape_ms_year.png)       |
-| Month picker in landscape mode with Arabic locale.  | ![](screenshots/landscape_ar_month.png)      |
-| Year picker in landscape mode with Arabic locale.   | ![](screenshots/landscape_ar_year.png)       |
+| Mode                                                    | Screenshot                                   |
+| ------------------------------------------------------- | -------------------------------------------- |
+| MonthYear picker in portrait mode with default locale.  | ![](screenshots/portrait_default.jpeg)  |
+| MonthYear picker in portrait mode with Nepali locale.   | ![](screenshots/portrait_ne.jpeg)   |
+| MonthYear picker in Landscape mode .                    | ![](screenshots/landscape.jpeg)       |
+
 
 ## Building From Source
 
