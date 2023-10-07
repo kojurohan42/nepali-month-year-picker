@@ -1,25 +1,25 @@
-# Material Month/Year Picker
+# Material Nepali Month/Year Picker
 
-[![Pub](https://img.shields.io/pub/v/month_year_picker?style=flat-square)][pub]
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zulfahmi93/month-year-picker/publish.yaml?label=publish&style=flat-square)
+[![Pub](https://img.shields.io/pub/v/nepali_month_year_picker?style=flat-square)][pub]
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zulfahmi93/nepali-month-year-picker/publish.yaml?label=publish&style=flat-square)
 
-The month year picker inspired by the Flutter's date picker design.
+The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`. It is a month year picker for the Nepali calendar using the help of `nepali_utils`.
 
 ## Quick Start
 
 1. Open your `pubspec.yaml` file and add this entry:
 
     ```yaml
-    month_year_picker: ^0.3.0+1
+    nepali_month_year_picker: ^0.0.1+1
     ```
 
-   OR just run `flutter pub add month_year_picker` using your preferred terminal app.
+   OR just run `flutter pub add nepali_month_year_picker` using your preferred terminal app.
 
 2. Then run `flutter pub get`.
 3. Import this library into your code:
 
     ```dart
-    import 'package:month_year_picker/month_year_picker.dart';
+    import 'package:nepali_month_year_picker/nepali_month_year_picker.dart';
     ```
     Additionally, ensure your MaterialApp refers to the following `localizationsDelegates`:
     ```
@@ -31,7 +31,7 @@ The month year picker inspired by the Flutter's date picker design.
 4. Usage in code:
 
     ```dart
-    final selected = await showMonthYearPicker(
+    final selected = await showNepaliMonthYearPicker(
       context: context,
       initialDate: NepaliDateTime.now(),
       firstDate: NepaliDateTime(2019),
@@ -48,7 +48,8 @@ The month year picker inspired by the Flutter's date picker design.
 | `firstDate`                    | Must not be `null`. The `firstDate` will be truncated to its `year` and `month` components. This is the earliest allowable month/year.                                                                                                                                           |
 | `lastDate`                     | Must not be `null`. The `lastDate` will be truncated to its `year` and `month` components. This is the latest allowable month/year.                                                                                                                                              |
 | `selectableMonthYearPredicate` | Can be `null`. The function to provide full control over which month/year can be selected. If provided, only the month/year that the `selectableMonthYearPredicate` returns `true` for will be selectable.                                                                       |
-| `locale`                       | Can be `null`. If provided, will be used to set the locale for the month/year picker. Otherwise, it defaults to the ambient locale provided by `Localizations`.                                                                                                                  |
+| `locale`                       | Can be `null`. If provided, will be used to set the locale for the month/year picker. Otherwise, it defaults to the ambient locale provided by `Localizations`. Can only be set to `en` as default and `ne` for Nepali 
+| `language`             | Can be `null`. If provided, will be used as per to use the nepali formatter of `nepali_utils` package. Can be set to `Language.english` or `Language.nepali`.                                                                                                                 |
 | `useRootNavigator`             | Can be `null`. Will be passed to the internal `showDialog` function call.                                                                                                                                                                                                        |
 | `routeSettings`                | Can be `null`. Will be passed to the internal `showDialog` function call.                                                                                                                                                                                                        |
 | `textDirection`                | Can be `null`. If provided, will be used to set the text direction for the month/year picker. Otherwise, it defaults to the ambient locale provided by `Directionality`.                                                                                                         |
