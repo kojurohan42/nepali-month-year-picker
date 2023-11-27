@@ -69,13 +69,11 @@ Future<NepaliDateTime?> showNepaliMonthYearPicker({
     );
   }
 
-  if (locale != null) {
-    dialog = Localizations.override(
-      context: context,
-      locale: locale,
-      child: dialog,
-    );
-  }
+  dialog = Localizations.override(
+    context: context,
+    locale: locale,
+    child: dialog,
+  );
 
   return await showDialog<NepaliDateTime>(
     context: context,
@@ -163,7 +161,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final textTheme = theme.textTheme;
     // Constrain the textScaleFactor to the largest supported value to prevent
     // layout issues.
-    final textScaleFactor = math.min(media.textScaleFactor, 1.3);
+    final textScaleFactor = math.min(media.textScaler.scale(1.0), 1.3);
     final direction = Directionality.of(context);
 
     final dateText =
@@ -340,9 +338,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
           duration: _dialogSizeAnimationDuration,
           curve: Curves.easeIn,
           child: MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaleFactor: textScaleFactor,
-            ),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: TextScaler.linear(textScaleFactor)),
             child: Builder(
               builder: (context) {
                 switch (orientation) {
