@@ -74,7 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               child: const Text('नेपाली'),
               onPressed: () => _onPressed(
-                  context: context, locale: 'ne', language: Language.nepali),
+                context: context,
+                locale: 'ne',
+              ),
             ),
           ],
         ),
@@ -103,16 +105,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _onPressed({
     required BuildContext context,
     String? locale,
-    Language language = Language.english,
   }) async {
     final localeObj = locale != null ? Locale(locale) : null;
     final selected = await showNepaliMonthYearPicker(
-        context: context,
-        initialDate: _selected ?? NepaliDateTime.now(),
-        firstDate: NepaliDateTime(2070),
-        lastDate: NepaliDateTime(2090),
-        locale: localeObj,
-        language: language);
+      context: context,
+      initialDate: _selected ?? NepaliDateTime.now(),
+      firstDate: NepaliDateTime(2070),
+      lastDate: NepaliDateTime(2090),
+      locale: localeObj,
+    );
     if (selected != null) {
       setState(() {
         _selected = selected;
