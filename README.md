@@ -1,7 +1,6 @@
 # Material Nepali Month/Year Picker
 
 [![Pub](https://img.shields.io/pub/v/nepali_month_year_picker?style=flat-square)][pub]
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zulfahmi93/nepali-month-year-picker/publish.yaml?label=publish&style=flat-square)
 
 The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`. It is a month year picker for the Nepali calendar with the help of `nepali_utils`.
 
@@ -58,7 +57,11 @@ The Nepali month year picker inspired by the month year picker by `zulfahmi.dev`
 
 
 ## Example Demo
-![](screenshots/nepali_month_picker_demo.mp4) 
+
+https://github.com/kojurohan42/nepali-month-year-picker/assets/60424631/e6d73d09-422a-4bb6-90f6-0c47a8af42c4
+
+
+
 
 ## Screenshots
 
@@ -87,7 +90,7 @@ Please file feature requests and bugs at the [issue tracker](https://github.com/
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE][license] file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/kojurohan42/nepali-month-year-picker/blob/master/LICENSE) file for details.
 
 [pub]: https://pub.dartlang.org/packages/month_year_picker
 [tracker]: https://github.com/zulfahmi93/dart_libpray/issues
