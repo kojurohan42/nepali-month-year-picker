@@ -26,7 +26,7 @@ Future<NepaliDateTime?> showNepaliMonthYearPicker({
   required NepaliDateTime firstDate,
   required NepaliDateTime lastDate,
   SelectableMonthYearPredicate? selectableMonthYearPredicate,
-  Locale? locale,
+  Locale locale = const Locale('en'),
   bool useRootNavigator = true,
   RouteSettings? routeSettings,
   TextDirection? textDirection,

@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
     required BuildContext context,
     String? locale,
   }) async {
-    final localeObj = locale != null ? Locale(locale) : null;
+    final localeObj = locale != null ? Locale(locale) : const Locale("en");
     final selected = await showNepaliMonthYearPicker(
       context: context,
       initialDate: _selected ?? NepaliDateTime.now(),
